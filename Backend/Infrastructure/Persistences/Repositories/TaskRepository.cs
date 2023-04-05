@@ -16,7 +16,7 @@ namespace TEST.Infrastructure.Persistences.Repositories
         {
             var response = new BaseEntityResponse<Domain.Entities.TaskEntity>();
 
-            var categories = GetEntityQuery(x => x.AuditDeleteUser == null && x.AuditDeleteDate == null)
+            var tasks = GetEntityQuery(x => x.AuditDeleteUser == null && x.AuditDeleteDate == null)
                 .AsNoTracking();
 
             if (filters.NumFilter is not null && !string.IsNullOrEmpty(filters.TextFilter))
@@ -24,28 +24,28 @@ namespace TEST.Infrastructure.Persistences.Repositories
                 switch (filters.NumFilter)
                 {
                     case 1:
-                        categories = categories.Where(x => x.Name!.Contains(filters.TextFilter));
+                        tasks = tasks.Where(x => x.Name!.Contains(filters.TextFilter));
                         break;
                     case 2:
-                        categories = categories.Where(x => x.Description!.Contains(filters.TextFilter));
+                        tasks = tasks.Where(x => x.Description!.Contains(filters.TextFilter));
                         break;
                 }
             }
 
             if (filters.StateFilter is not null)
             {
-                categories = categories.Where(x => x.State.Equals(filters.StateFilter));
+                tasks = tasks.Where(x => x.State.Equals(filters.StateFilter));
             }
 
             if (!string.IsNullOrEmpty(filters.StartDate) && !string.IsNullOrEmpty(filters.EndDate))
             {
-                categories = categories.Where(x => x.AuditCreateDate >= Convert.ToDateTime(filters.StartDate) && x.AuditCreateDate <= Convert.ToDateTime(filters.EndDate).AddDays(1));
+                tasks = tasks.Where(x => x.AuditCreateDate >= Convert.ToDateTime(filters.StartDate) && x.AuditCreateDate <= Convert.ToDateTime(filters.EndDate).AddDays(1));
             }
 
             if (filters.Sort is null) filters.Sort = "Id";
 
-            response.TotalRecords = await categories.CountAsync();
-            response.Items = await Ordering(filters, categories, !(bool)filters.Download!).ToListAsync();
+            response.TotalRecords = await tasks.CountAsync();
+            response.Items = await Ordering(filters, tasks, !(bool)filters.Download!).ToListAsync();
             return response;
         }
     }
