@@ -67,6 +67,12 @@ export class AppComponent {
         label: 'Dashboard',
         route: 'dashboard',
         icon: icDashboard
+      },
+      {
+        type: 'link',
+        label: 'Tasks',
+        route: 'tasks',
+        icon: icCategory
       }
     ];
   }

@@ -13,6 +13,13 @@ const childrenRoutes: VexRoutes = [
     }
   },
   {
+    path: 'tasks',
+    loadChildren: () => import('./pages/task/task.module').then(m => m.TaskModule),
+    data: {
+      containerEnabled: true
+    }
+  },
+  {
     path: '**',
     component: NotFoundComponent
   }
