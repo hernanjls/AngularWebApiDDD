@@ -36,7 +36,7 @@ INSTRUCTIONS FOR RUN THE SAMPLE IN THE BACKEND FOLDER
  
  the service should be enabled to be used in the angular application
  
- INSTRUCTIONS FOR RUN THE SAMPLE IN THE BACKEND FOLDER
+ INSTRUCTIONS FOR RUN THE SAMPLE IN THE FRONTEND FOLDER
  
  1) In the console inside the frontend folder run the following command to install the project dependencies
    
