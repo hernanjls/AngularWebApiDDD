@@ -1,0 +1,11 @@
+
+This is the url folder in google drive that contain the videos about this application
+
+The folder contains two videos, 
+
+The first video explain the application 
+and how configurate this locally using visual studio 2022, visual studio code and docker desktop tools.
+
+The second video show how run the angular frontend project y show also the applicaation running in the browser locally
+
+https://drive.google.com/drive/folders/11vMqppa7km89zMMWnAp64VaPluZA8N03
